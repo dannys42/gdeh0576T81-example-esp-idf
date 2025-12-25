@@ -1,15 +1,17 @@
+#include <sdkconfig.h>
+
 //EPD
 #include "Display_EPD_W21_spi.h"
 #include "Display_EPD_W21.h"
 #include "Ap_29demo.h"  
 
 void setup() {
-   pinMode(A14, INPUT);  //BUSY
-   pinMode(A15, OUTPUT); //RES 
-   pinMode(A16, OUTPUT); //DC   
-   pinMode(A17, OUTPUT); //CS   
-   pinMode(18, OUTPUT); //SCL   
-   pinMode(23, OUTPUT); //SDA   
+   pinMode(CONFIG_GDEH0576T81_GPIO_BUSY, INPUT);  //BUSY
+   pinMode(CONFIG_GDEH0576T81_GPIO_RST, OUTPUT); //RES
+   pinMode(CONFIG_GDEH0576T81_GPIO_DC, OUTPUT); //DC
+   pinMode(CONFIG_GDEH0576T81_GPIO_CS, OUTPUT); //CS
+   pinMode(CONFIG_GDEH0576T81_GPIO_SCK, OUTPUT); //SCL
+   pinMode(CONFIG_GDEH0576T81_GPIO_MOSI, OUTPUT); //SDA
 
    Serial.begin(115200);
 }
