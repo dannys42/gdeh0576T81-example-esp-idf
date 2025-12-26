@@ -53,3 +53,9 @@ dkms.conf
 
 # debug information files
 *.dwo
+
+# Additional files to ignore
+/.vscode/
+/build/
+/sdkconfig.old
+/managed_components
