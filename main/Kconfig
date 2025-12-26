@@ -1,0 +1,48 @@
+menu "GDEH0576T81 5.76in Display"
+    help
+        Configuration for GDEH0576T81 e-paper display.
+
+    config GDEH0576T81_GPIO_SCK
+    int "SCK GPIO"
+    range 0 50
+    default 18
+    help
+        SCK GPIO pin number
+
+    config GDEH0576T81_GPIO_MOSI
+    int "MOSI GPIO"
+    range 0 50
+    default 23
+    help
+        MOSI GPIO pin number
+
+    config GDEH0576T81_GPIO_CS
+    int "CS GPIO"
+    range 0 50
+    default 17
+    help
+        CS GPIO pin number
+
+    config GDEH0576T81_GPIO_RST
+    int "RST GPIO"
+    range 0 50
+    default 15
+    help
+        RST GPIO pin number
+
+    config GDEH0576T81_GPIO_DC
+    int "DC GPIO"
+    range 0 50
+    default 16
+    help
+        DC GPIO pin number
+
+    config GDEH0576T81_GPIO_BUSY
+    int "BUSY GPIO"
+    range 0 50
+    default 14
+    help
+        BUSY GPIO pin number
+
+endmenu
+

@@ -14,6 +14,12 @@ void setup() {
    pinMode(CONFIG_GDEH0576T81_GPIO_MOSI, OUTPUT); //SDA
 
    Serial.begin(115200);
+   printf("BUSY pin: %d   value: %d\n", CONFIG_GDEH0576T81_GPIO_BUSY, isEPD_W21_BUSY);
+   printf(" RST pin: %d\n", CONFIG_GDEH0576T81_GPIO_RST);
+   printf("  DC pin: %d\n", CONFIG_GDEH0576T81_GPIO_DC);
+   printf("  CS pin: %d\n", CONFIG_GDEH0576T81_GPIO_CS);
+   printf(" SCK pin: %d\n", CONFIG_GDEH0576T81_GPIO_SCK);
+   printf("MOSI pin: %d\n", CONFIG_GDEH0576T81_GPIO_MOSI);
 }
 
 //Tips//
@@ -61,7 +67,7 @@ void loop() {
 		Display_All_White();
 		EPD_sleep();//Enter the sleep mode and please do not delete it, otherwise it will reduce the lifespan of the screen.
 #endif
-    while(1); // The program stops here
+    // while(1); // The program stops here -- don't loop, just terminate
 }
 
 

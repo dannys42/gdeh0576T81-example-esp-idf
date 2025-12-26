@@ -1,6 +1,7 @@
 #include "Display_EPD_W21_spi.h"
 #include "Display_EPD_W21.h"
 #include "Arduino.h"
+#include "freertos/idf_additions.h"
 
 void delay_xms(unsigned int xms)
 {
@@ -136,10 +137,19 @@ void EPD_update(void)
 
 void lcd_chkstatus(void)
 { 
-  while(1)
-  {	 //=0 BUSY
-     if(isEPD_W21_BUSY==1) break;
-  }  
+	int count=0;
+	while(1)
+	{	 //=0 BUSY
+    	if(isEPD_W21_BUSY==1)
+	 		break;
+    	vTaskDelay(pdMS_TO_TICKS(20));
+
+		if( (count%50) == 0 && count > 0 ) {
+			printf("lcd_chkstatus(): Busy wait for %d seconds\n", count/50);
+		}
+
+		count++;
+  	}  
 }
 
 

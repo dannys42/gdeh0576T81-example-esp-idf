@@ -33,8 +33,8 @@ void EPD_W21_WriteDATA(unsigned char datas)
 unsigned char EPD_W21_ReadDATA(void)
 {
 	
-	unsigned char i,temp;
-   pinMode(23, INPUT);  //SDA IN
+	unsigned char i,temp=0;
+   pinMode(CONFIG_GDEH0576T81_GPIO_MOSI, INPUT);  //SDA IN
     EPD_W21_CS_0;                   
 	  EPD_W21_DC_1;		// command write(Must be added)
      for(i=0; i<8; i++)   
@@ -47,6 +47,6 @@ unsigned char EPD_W21_ReadDATA(void)
     EPD_W21_CLK_1; 
     EPD_W21_CLK_0; 
     }
-	pinMode(23, OUTPUT);  //SDA OUT
+	pinMode(CONFIG_GDEH0576T81_GPIO_MOSI, OUTPUT);  //SDA OUT
 	return(temp);
 }
